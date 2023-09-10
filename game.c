@@ -25,7 +25,7 @@ int main()
 void PlayRPS(int *PlayerInput)
 {
     printf("CHOOSE YOUR FIGHTER!\n|ROCK(1)|PAPER(2)|SCISSORS(3)|\n");
-    ChoicePlayer(&PlayerInput); // Pass the address and dereference PlayerInput
+    ChoicePlayer(PlayerInput); // Pass the address and dereference PlayerInput
     int CPUInput = ChoiceCPU();
     printf("CPU: %d", CPUInput);
     Fight(*PlayerInput, CPUInput);
@@ -37,10 +37,10 @@ int ChoiceCPU()
     return choice;
 }
 
-int ChoicePlayer(int **playerInput)
+int ChoicePlayer(int *playerInput)
 {
     printf("YOU: ");
-    scanf("%d", &**playerInput); // Corrected the scanf format and added the & symbol to read the input into playerInput.
+    scanf("%d", &*playerInput); // Corrected the scanf format and added the & symbol to read the input into playerInput.
     return playerInput;
 }
 
