@@ -6,14 +6,14 @@ int main()
 {
     int PlayerInput;
 
-    srand(time(NULL)); // Moved srand to the main function to seed the random number generator only once.
+    srand(time(NULL)); // Seed the random number generator once.
 
     while (1) 
     {
-        PlayRPS(&PlayerInput); // Pass the address of PlayerInput to modify it
+        PlayRPS(&PlayerInput); // Call PlayRPS and pass the address of PlayerInput to modify it
 
         printf("\nPlay Again? |YES(1)|NO(2)|\nYOU: ");
-        scanf("%d", &PlayerInput); // Corrected the scanf format and added the & symbol to read the input into PlayerInput.
+        scanf("%d", &PlayerInput);
 
         if (PlayerInput != 1)
             break;
@@ -22,29 +22,34 @@ int main()
     return 0;
 }
 
+// Function to play Rock-Paper-Scissors
 void PlayRPS(int *PlayerInput)
 {
     printf("CHOOSE YOUR FIGHTER!\n|ROCK(1)|PAPER(2)|SCISSORS(3)|\n");
-    ChoicePlayer(PlayerInput); // Pass the address and dereference PlayerInput
-    int CPUInput = ChoiceCPU();
+    ChoicePlayer(PlayerInput); // Call ChoicePlayer and pass the address of PlayerInput to get the user's choice
+    int CPUInput = ChoiceCPU(); // Get the CPU's choice
     printf("CPU: %d", CPUInput);
-    Fight(*PlayerInput, CPUInput);
+    Fight(*PlayerInput, CPUInput); // Call the Fight function with player and CPU choices
 }
 
+// Function for the CPU to make a random choice
 int ChoiceCPU()
 {
-    int choice = rand() % 3 + 1;
+    int choice = rand() % 3 + 1; // Generate a random number (1, 2, or 3)
     return choice;
 }
 
+// Function for the player to choose
 int ChoicePlayer(int *playerInput)
 {
     printf("YOU: ");
-    scanf("%d", &*playerInput); // Corrected the scanf format and added the & symbol to read the input into playerInput.
-    return playerInput;
+    scanf("%d", &*playerInput); // Read the user's choice and store it in the location pointed to by playerInput
+    return *playerInput;
 }
 
-void Fight(int pI, int cI) {
+// Function to determine the winner
+void Fight(int pI, int cI)
+{
     if (pI == cI) {
         printf("\nDRAW");
     }
