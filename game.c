@@ -26,6 +26,14 @@ int main()
     return 0;
 }
 
+// in progress...
+void logThis() {
+    FILE *f;
+    f = fopen("x.log", "a+"); // a+ (create + append) option will allow appending which is useful in a log file
+    if (f == NULL) { /* Something is wrong   */}
+    fprintf(f, "I'm logging something ...\n");
+}
+
 void clear() {
     printf("\e[1;1H\e[2J");
 }
