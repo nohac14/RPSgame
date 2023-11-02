@@ -15,11 +15,19 @@ int main()
         printf("\nPlay Again? |YES(1)|NO(2)|\nYOU: ");
         scanf("%d", &PlayerInput);
 
-        if (PlayerInput != 1)
+        if (PlayerInput != 1) {
             break;
+        }
+        else {
+            clear();
+        }
     }
 
     return 0;
+}
+
+void clear() {
+    printf("\e[1;1H\e[2J");
 }
 
 // Function to play Rock-Paper-Scissors
