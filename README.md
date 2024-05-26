@@ -53,10 +53,6 @@ To run the game, use the following command:
 - **Game Loop**: The `while (1)` loop runs the game until the player chooses to exit by entering a number other than 1.
 - **Function Calls**: Functions like `PlayRPS`, `ChoiceCPU`, `ChoicePlayer`, and `Fight` modularize the code, making it easier to read and maintain.
 
-## License
-
-This project is licensed under the MIT License.
-
 ## Acknowledgements
 
 - C Standard Library for providing necessary functions and utilities.
